@@ -1,6 +1,13 @@
 ## Introduction
 
 ## SteemJ dependency
+The dependency is mentioned in the ["Steem-Java wiki"](https://github.com/marvin-we/steem-java-api-wrapper/wiki/How-to-add-SteemJ-to-your-project) page. Here, all the installations for different dependencies are available here - 
+* Maven
+* Ivy
+* Gradle (discussed in this tutorial)
+* Scala
+* Groovy
+* Download
 
 ## Slf4j dependency
 As mentioned in the ["Steem-Java wiki"](https://github.com/marvin-we/steem-java-api-wrapper/wiki/Logging#introduction):
@@ -8,7 +15,7 @@ As mentioned in the ["Steem-Java wiki"](https://github.com/marvin-we/steem-java-
 
 > To achieve this, SteemJ only contains the slf4j-api and expects you, to add the slf4j implementation of your choice to your project. 
 
-NOTE: The possible error codes while compiling codes can be found [here](https://www.slf4j.org/codes.html) with the solution.
+NOTE: The possible error codes while compiling codes can be found [here](https://www.slf4j.org/codes.html) along with the solution.
 ## Log4j dependency
 Ref. - https://logging.apache.org/log4j/2.0/maven-artifacts.html
 
