@@ -43,7 +43,7 @@ libraryDependencies += "eu.bittrade.libs" % "steemj-core" % "0.4.3"
 [eu.bittrade.libs/steemj-core "0.4.3"]
 [...]
 ```
-* Download
+* Download:- 
 Please, download from [here](https://mvnrepository.com/artifact/eu.bittrade.libs/steemj-core) as per required according to the version.
 
 ## Slf4j dependency
@@ -92,8 +92,8 @@ libraryDependencies += "org.apache.logging.log4j" % "log4j-slf4j-impl" % "2.1"
 ;; https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl
 [org.apache.logging.log4j/log4j-slf4j-impl "2.1"]
 ```
-* Download
- Please, download this file according to the required version from this [page](http://central.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.10.0/) "log4j-slf4j-impl-2.10.0.jar"
+* Download:- 
+ Please, download this file- "log4j-slf4j-impl-2.10.0.jar" according to the required version from this [page](http://central.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.10.0/) 
 
 
 NOTE: The possible error codes while compiling codes can be found [here](https://www.slf4j.org/codes.html) along with the solution.
