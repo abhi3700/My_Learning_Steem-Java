@@ -5,6 +5,7 @@
 ## Slf4j dependency
 As mentioned in the ["Steem-Java wiki"](https://github.com/marvin-we/steem-java-api-wrapper/wiki/Logging#introduction):
 > Prior to SteemJ version 0.4.0, SteemJ was shipped with a logging framework implementation. As this is a bad practice for several reasons, SteemJ 0.4.0 removed this implementation and allows you to configure the logging on your own.
+
 To achieve this, SteemJ only contains the slf4j-api and expects you, to add the slf4j implementation of your choice to your project. 
 
 NOTE: The possible error codes while compiling codes can be found [here](https://www.slf4j.org/codes.html) with the solution.
