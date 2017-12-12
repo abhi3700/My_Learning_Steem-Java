@@ -210,11 +210,11 @@ public class LoggerMethods {
 	 // get a logger instance
 	public static Logger logger = Logger.getLogger(LoggerMethods.class);
   
-  public static void main(String[] args) {
+  	public static void main(String[] args) {
 		LoggerExample example = new LoggerExample();
 		example.testLoggerDebug();  // Debug method
 		example.testLoggerInfo();   // Info method
-    example.testLoggerError();  // Error method
+    		example.testLoggerError();  // Error method
 		example.testLoggerWarn();   // Warn method
 		example.testLoggerFatal();  // Fatal method
 	}
@@ -227,7 +227,7 @@ public class LoggerMethods {
 		logger.info("Hello.. im in Info method");
 	}
   
-  public void testLoggerError() {
+  	public void testLoggerError() {
 		logger.error("Hello.. im in Error method");
 	}
 
