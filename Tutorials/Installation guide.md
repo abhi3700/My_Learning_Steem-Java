@@ -1,10 +1,10 @@
 ## Introduction
 
 ## SteemJ dependency
-The dependency is mentioned in the ["Steem-Java wiki"](https://github.com/marvin-we/steem-java-api-wrapper/wiki/How-to-add-SteemJ-to-your-project) page. Here, all the installations for different dependencies are available here - 
+The dependency is mentioned in the ["Steem-Java wiki"](https://github.com/marvin-we/steem-java-api-wrapper/wiki/How-to-add-SteemJ-to-your-project) page. Here, all the installations for different **"build management tools"** are available here - 
 * Maven
 * Ivy
-* Gradle (discussed in this tutorial)
+* **Gradle** (discussed in this tutorial)
 * Scala
 * Groovy
 * Download
@@ -13,7 +13,12 @@ The dependency is mentioned in the ["Steem-Java wiki"](https://github.com/marvin
 As mentioned in the ["Steem-Java wiki"](https://github.com/marvin-we/steem-java-api-wrapper/wiki/Logging#introduction):
 > Prior to SteemJ version 0.4.0, SteemJ was shipped with a logging framework implementation. As this is a bad practice for several reasons, SteemJ 0.4.0 removed this implementation and allows you to configure the logging on your own. 
 
-> To achieve this, SteemJ only contains the slf4j-api and expects you, to add the slf4j implementation of your choice to your project. 
+> To achieve this, SteemJ only contains the _slf4j-api_ and expects you, to add the _slf4j_ implementation of your choice to your project.
+
+So, we have to add the other _slf4j_ implementations into our project. Follow the guide [here](https://github.com/marvin-we/steem-java-api-wrapper/wiki/Logging#example-configuration)
+> One good example of an alternative slf4j implementation is log4j-slf4j-impl, which implements the slf4j-api and adds the powerfull configuration options of log4j2.
+
+In the ``` build.gradle```
 
 NOTE: The possible error codes while compiling codes can be found [here](https://www.slf4j.org/codes.html) along with the solution.
 ## Log4j dependency
