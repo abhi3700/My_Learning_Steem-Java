@@ -37,7 +37,7 @@ libraryDependencies += "eu.bittrade.libs" % "steemj-core" % "0.4.3"
 @Grab(group='eu.bittrade.libs', module='steemj-core', version='0.4.3')
 [...]
 ```
-* Leinigen
+* Leiningen
 ```
 [...]
 [eu.bittrade.libs/steemj-core "0.4.3"]
@@ -87,7 +87,7 @@ libraryDependencies += "org.apache.logging.log4j" % "log4j-slf4j-impl" % "2.1"
     @Grab(group='org.apache.logging.log4j', module='log4j-slf4j-impl', version='2.1')
 )
 ```
-* Leinigen
+* Leiningen
 ```
 ;; https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl
 [org.apache.logging.log4j/log4j-slf4j-impl "2.1"]
@@ -98,9 +98,13 @@ libraryDependencies += "org.apache.logging.log4j" % "log4j-slf4j-impl" % "2.1"
 
 NOTE: The possible error codes while compiling codes can be found [here](https://www.slf4j.org/codes.html) along with the solution.
 ## Log4j dependency
+Log4j means "logging for java". It is very important for building distributed applications (normally blockchain-based apps). This is because there is no debugger available for this libraries like in case of "steem-core". So, we need to feed this additional codes in order to note "what is happening?" in every lines of program during execution.
+A brief history - log4j was closed in 2015. Read the [post](https://blogs.apache.org/foundation/entry/apache_logging_services_project_announces). But resumed now.
+Read about [log4j 2](http://logging.apache.org/log4j/2.x/index.html)
 
-**log4j-api** ->
-**log4j-core** ->
+Log4j 2 is divided into 2 parts
+**log4j-api** -> the API that provides the interface that applications should code to.
+**log4j-core** -> an implementation required during runtime, not at compile time.
 
 To know more, click [here](http://logging.apache.org/log4j/1.2/)
 
@@ -167,7 +171,7 @@ libraryDependencies += "org.apache.logging.log4j" % "log4j-core" % "2.10.0"
     @Grab(group='org.apache.logging.log4j', module='log4j-core', version='2.10.0')
 )
 ```
-* Leinigen
+* Leiningen
 ```
 // log4j-api
 ;; https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api
