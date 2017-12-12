@@ -18,7 +18,18 @@ As mentioned in the ["Steem-Java wiki"](https://github.com/marvin-we/steem-java-
 So, we have to add the other _slf4j_ implementations into our project. Follow the guide [here](https://github.com/marvin-we/steem-java-api-wrapper/wiki/Logging#example-configuration)
 > One good example of an alternative slf4j implementation is log4j-slf4j-impl, which implements the slf4j-api and adds the powerfull configuration options of log4j2.
 
-In the ``` build.gradle```
+In the build management tools, follow this -
+* Maven
+```
+<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-slf4j-impl</artifactId>
+    <version>2.1</version>
+</dependency>
+
+```
+
 
 NOTE: The possible error codes while compiling codes can be found [here](https://www.slf4j.org/codes.html) along with the solution.
 ## Log4j dependency
