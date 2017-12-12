@@ -1,7 +1,7 @@
 ## Introduction
 
 ## SteemJ dependency
-The dependency is mentioned in the ["Steem-Java wiki"](https://github.com/marvin-we/steem-java-api-wrapper/wiki/How-to-add-SteemJ-to-your-project) page. Here, all the installations for different **"build management tools"** are available here - 
+The dependency is mentioned in the ["Steem-Java wiki"](https://github.com/marvin-we/steem-java-api-wrapper/wiki/How-to-add-SteemJ-to-your-project) page. Here, all the installations for different **"build management tools"** are available [here](https://mvnrepository.com/artifact/eu.bittrade.libs/steemj-core/0.4.3) i.e. latest version - 0.4.3 : 
 * Maven
 ```
 [...]
