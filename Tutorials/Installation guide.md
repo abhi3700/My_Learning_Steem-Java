@@ -184,6 +184,62 @@ libraryDependencies += "org.apache.logging.log4j" % "log4j-core" % "2.10.0"
 * Download:- 
  Please, download this file- "log4j-api-2.10.0.jar" according to the required version from this [page](http://central.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.10.0/) and file - "log4j-core-2.10.0.jar" according to the required version from this [page](http://central.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.10.0/)
  
+#### Practical example: 
+Coding a logging example for better understanding.
+For the methods - **debug, info, error, warn, fatal** to appear, we have to add a configuration file - ```log4j2.xml```
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info">
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Root level="debug">
+			<AppenderRef ref="Console" />
+		</Root>
+	</Loggers>
+</Configuration>
+```
+
+**JAVA implementation**
+```java
+public class LoggerMethods {
+
+	 // get a logger instance
+	public static Logger logger = Logger.getLogger(LoggerMethods.class);
+  
+  public static void main(String[] args) {
+		LoggerExample example = new LoggerExample();
+		example.testLoggerDebug();  // Debug method
+		example.testLoggerInfo();   // Info method
+    example.testLoggerError();  // Error method
+		example.testLoggerWarn();   // Warn method
+		example.testLoggerFatal();  // Fatal method
+	}
+
+	public void testLoggerDebug() {
+		logger.debug("Hello.. im in Debug method");
+	}
+
+	public void testLoggerInfo() {
+		logger.info("Hello.. im in Info method");
+	}
+  
+  public void testLoggerError() {
+		logger.error("Hello.. im in Error method");
+	}
+
+	public void testLoggerWarn() {
+		logger.warn("Hello.. im in Warn method");
+	}
+
+	public void testLoggerFatal() {
+		logger.fatal("Hello.. im in Fatal method");
+	}
+}
+```
 
 ## Coding an Steem-based App 
 Here, we will be developing an **Android** App whose backend will be hosted on **Steem-blockchain**. Although this is a simple App which will fetch the data (i.e. reading, not writing). In subsequent tutorials, we will be learning _reading from_ and _writing to_ the Steem-database in lot more details.
