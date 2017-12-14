@@ -1,4 +1,10 @@
+![](https://steemit-production-imageproxy-thumbnail.s3.amazonaws.com/U5dsRkzYuy1zS2U1nq4GF5L5nyNv231_1680x8400)
 ## Introduction
+For coding the Steem blockchain for _read from_ and _write to_ operations, we need a library. The library called - [**SteemJ**](https://github.com/marvin-we/steem-java-api-wrapper) is to be used in the whole tutorial series. 
+
+Actually, while coding the **SteemJ**, we have to find out where exactly the exception is occuring and at which line of code, the error is present. In order to meet the need, there is an initiative taken by the Apache foundation providing us with _"SL4J"_ and _"Log4J"_. These are for logging the data for fetching the steem-blockchain.
+But, later we will switch to a different logger called [**Logger**](https://github.com/orhanobut/logger). This is way better than using the _slf4j_ & _log4j_.
+Although, there are multiple build management systems. But here we are concerned with _Gradle_ which is used in building Android apps.
 
 ## SteemJ dependency
 The dependency is mentioned in the ["Steem-Java wiki"](https://github.com/marvin-we/steem-java-api-wrapper/wiki/How-to-add-SteemJ-to-your-project) page. Here, all the installations for different **"build management tools"** are available [here](https://mvnrepository.com/artifact/eu.bittrade.libs/steemj-core/0.4.3) i.e. latest version - 0.4.3 : 
@@ -240,7 +246,131 @@ public class LoggerMethods {
 	}
 }
 ```
+## Logger Android
+![](https://github.com/abhi3700/My_Learning_Steem-Java/blob/master/Images/Logger.png)
 
-## Coding an Steem-based App 
+* **Gradle** (discussed in this tutorial)
+```
+// Logger android
+compile 'com.orhanobut:logger:2.1.1'
+```
+Below are the basic codes which are to be added wherever needed. By default, the TAG is _PRETTY_LOGGER_.
+```
+Logger.addLogAdapter(new AndroidLogAdapter());  // intialising the Logger
+Logger.d("debug")
+Logger.i("info")
+Logger.e("error")
+Logger.w("warn")
+Logger.v("verbose")
+```
+
+
+## Coding a Steem-based App 
 Here, we will be developing an **Android** App whose backend will be hosted on **Steem-blockchain**. Although this is a simple App which will fetch the data (i.e. reading, not writing). In subsequent tutorials, we will be learning _reading from_ and _writing to_ the Steem-database in lot more details.
 
+So, the simple front-end in xml:- 
+```
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="in.topux.steemit2.HomeActivity">
+
+
+    <TextView
+        android:id="@+id/username_value"
+        android:layout_width="65dp"
+        android:layout_height="21dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/price_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="108dp"
+        android:text="TextView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username_value" />
+</android.support.constraint.ConstraintLayout>
+```
+
+The code in java :-
+```
+public class HomeActivity extends AppCompatActivity {
+
+    private TextView usernameValue;
+    private TextView priceValue;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.home_activity);
+
+        Logger.addLogAdapter(new AndroidLogAdapter());
+
+        usernameValue = (TextView) findViewById(R.id.username_value);
+        priceValue = (TextView) findViewById(R.id.price_value);
+
+	// Steem blockchain connection using AsyncTask
+        new SteemAsyncTask().execute();
+    }
+
+    private static class MyCustomCallback extends BlockAppliedCallback {
+        @Override
+        public void onNewBlock(SignedBlockHeader signedBlockHeader) {
+            Logger.i("Signed block addition",signedBlockHeader.toString());
+        }
+    }
+
+    private class SteemAsyncTask extends AsyncTask<Void,Void,String[]>{
+
+        @Override
+        protected String[] doInBackground(Void... voids) {
+            String[] strings = new String[100]; // 100 is a random number (chosen) of strings inside the array.
+            try{
+                // adding a new API wrapper
+                SteemJ steemJ = new SteemJ();
+                Logger.i("Steem blockchain connected");
+
+                steemJ.setBlockAppliedCallback(new MyCustomCallback());
+
+                strings[0] = steemJ.getHardforkVersion();
+                Logger.i("HF version fetched");
+
+                MarketTicker marketTicker = steemJ.getTicker();
+                strings[1] = marketTicker.toString();
+                Logger.i("get market ticker");
+
+            } catch (SteemCommunicationException e){
+                Logger.e("SteemCommunicationException " + e.getMessage());
+            } catch (SteemResponseException e){
+                Logger.e("SteemResponseException " + e.getMessage());
+            } catch (NetworkOnMainThreadException e){
+                Logger.e("NetworkOnMainThreadException " + e.getMessage());
+            }
+            return strings;
+        }
+
+        @Override
+        protected void onPostExecute(String[] strings) {
+            super.onPostExecute(strings);
+            usernameValue.setText(strings[0]);
+            priceValue.setText(strings[1]);
+        }
+    }
+}
+```
+
+This is a simple example which shows fetching the data- _hardfork version_ and _market ticker_. Like this, we can fetch many more such data.
+
+That's all for now.
+
+View in [steemit](https://steemit.com/utopian-io/@abhi3700/learn-steem-java-with-android-1-installation-guide)
