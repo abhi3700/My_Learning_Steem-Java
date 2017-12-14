@@ -1,6 +1,7 @@
-![](https://steemit-production-imageproxy-thumbnail.s3.amazonaws.com/U5dtFy7fqVviMCftecXxngNvD9ZTxkv_1680x8400)
 # My_Learning_Steem-Java
 Learn about Steem blockchain through coding with JAVA
+
+![](https://steemit-production-imageproxy-thumbnail.s3.amazonaws.com/U5dtFy7fqVviMCftecXxngNvD9ZTxkv_1680x8400)
 
 ## Introduction
 The steem-blockchain is a platform for creating apps with a requirement to access a database. That database is provided by the **Steem** in form of a decentralised database with a block time of **3 seconds** on average. 
