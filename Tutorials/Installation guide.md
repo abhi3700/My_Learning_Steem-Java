@@ -1,4 +1,4 @@
-![](https://steemit-production-imageproxy-thumbnail.s3.amazonaws.com/U5dsRkzYuy1zS2U1nq4GF5L5nyNv231_1680x8400)
+![](https://steemit-production-imageproxy-thumbnail.s3.amazonaws.com/U5dtFy7fqVviMCftecXxngNvD9ZTxkv_1680x8400)
 ## Introduction
 For coding the Steem blockchain for _read from_ and _write to_ operations, we need a library. The library called - [**SteemJ**](https://github.com/marvin-we/steem-java-api-wrapper) is to be used in the whole tutorial series. 
 
