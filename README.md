@@ -10,3 +10,6 @@ _Java_ is required by developers wanting to build _Android_ apps. This tutorial 
 
 Let's get started !!!....
 
+## Resources
+* Java client for interacting with Steem Blockchain - https://github.com/muksihs/SteemCliPoster
+
